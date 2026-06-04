@@ -23,10 +23,12 @@
   </div>
   <div class="form-group">
     <div class='form-text-wrap'>
-      <label class="form-text">メールアドレス</label>
+      <label class="form-text">
+        <%= f.label :email, "メールアドレス"%>
+        <%= f.email_field :email, class:"input-default", id:"email", placeholder:"PC・携帯どちらでも可", autofocus: true %>
+      </label>
       <span class="indispensable">必須</span>
     </div>
-    <%= f.email_field :hoge, class:"input-default", id:"email", placeholder:"PC・携帯どちらでも可", autofocus: true %>
   </div>
   <div class="form-group">
     <div class='form-text-wrap'>
