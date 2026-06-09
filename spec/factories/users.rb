@@ -2,11 +2,11 @@ FactoryBot.define do
   factory :user do
     nickname              { Faker::Name.initials(number: 2) }
     email                 { Faker::Internet.unique.email }
-## 絶対英語と数字つけれるようにする
-    password              { 'a1' + Faker::Internet.password(min_length: 6) }
+    ## 絶対英語と数字つけれるようにする
+    password              { "a1#{Faker::Internet.password(min_length: 6)}" }
     password_confirmation { password }
-    
-##名前と生年月日は固定でも多分いい
+
+    # #名前と生年月日は固定でも多分いい
     first_name            { '山' }
     last_name             { '海' }
     first_name_kana       { 'ヤマ' }
