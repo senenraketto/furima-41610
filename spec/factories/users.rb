@@ -7,6 +7,7 @@ FactoryBot.define do
     password_confirmation { password }
 
     # #名前と生年月日は固定でも多分いい
+    # 固定のままでよい
     first_name            { '山' }
     last_name             { '海' }
     first_name_kana       { 'ヤマ' }

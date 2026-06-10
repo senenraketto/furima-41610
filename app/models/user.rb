@@ -4,9 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  # アソシエーション
-  has_many :items, dependent: :destroy
-  has_many :orders, dependent: :destroy
 
   # ユーザー情報
   validates :nickname, presence: true
@@ -18,8 +15,7 @@ class User < ApplicationRecord
   validates :first_name, presence: true, format: { with: VALID_NAME_REGEX, message: 'は全角（漢字・ひらがな・カタカナ）で入力してください' }
   validates :last_name, presence: true, format: { with: VALID_NAME_REGEX, message: 'は全角（漢字・ひらがな・カタカナ）で入力してください' }
 
-  #  名前カナ(全角)のバリデーション
-  # （全角のカタカナのみを許可する正規表現）
+  # 正規表現 カタカナ用
   VALID_NAME_KANA_REGEX = /\A[ァ-ヶー]+\z/
   validates :first_name_kana, presence: true, format: { with: VALID_NAME_KANA_REGEX, message: 'は全角（カタカナ）で入力してください' }
   validates :last_name_kana, presence: true, format: { with: VALID_NAME_KANA_REGEX, message: 'は全角（カタカナ）で入力してください' }
