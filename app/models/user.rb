@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-
+  # アソシエーションREADME.mdに書いている 実装ごとに書く
   # ユーザー情報
   validates :nickname, presence: true
   validates :birth_date, presence: true

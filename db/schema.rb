@@ -20,7 +20,6 @@ ActiveRecord::Schema[7.1].define(version: 2026_06_04_025056) do
     t.string "first_name_kana", null: false
     t.string "last_name_kana", null: false
     t.date "birth_date", null: false
-#書いた覚えがない 写真関連は自動生成のはず？
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
