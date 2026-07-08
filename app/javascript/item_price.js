@@ -1,9 +1,8 @@
 const price = () => {
-  // 商品価格 要素をGetelememntByIdで取得する
   const priceInput = document.getElementById("item-price");
   
+  if (!priceInput) return;
 
-  // addEventListenerで入力した時にイベント起こるように
   priceInput.addEventListener("input", () => {
     const inputValue = priceInput.value;
 
