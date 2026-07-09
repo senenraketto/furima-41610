@@ -25,9 +25,9 @@
 
     <%# ログインしているユーザーと出品しているユーザーが、同一人物の場合と同一人物ではない場合で、処理を分けましょう %>
 <% if user_signed_in? %>
-  <% if current_user.id == @item.user_id %>
+  <% if current_user.id == @item.user_id && @item.order.blank? %>
     <div class="item-btn">
-      <%= link_to "編集する", edit_item_path(@item), method: :get , class: "item-edit" %>
+      <%= link_to "編集する", edit_item_path(@item), method: :get , class: "item-red-btn" %>
       <%= link_to "削除する", item_path(@item), data: {turbo_method: :delete}, class: "item-destroy" %>
     </div>
   <% elsif @item.order.blank? %>

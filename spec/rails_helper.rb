@@ -62,3 +62,13 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 end
+
+module ActiveRecord
+  module ConnectionAdapters
+    class ConnectionPool
+      def connection
+        @thread_cached_conns[ActiveSupport::IsolatedExecutionState.context] ||= checkout
+      end
+    end
+  end
+end
