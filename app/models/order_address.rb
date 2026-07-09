@@ -11,6 +11,7 @@ class OrderAddress
     validates :city
     validates :address
     validates :phone_number, format: { with: /\A\d{10,11}\z/, message: 'は10桁または11桁の半角数字で入力してください' }
+    validates :token
   end
 
   # ④ 各テーブルにデータを保存する処理を書く
