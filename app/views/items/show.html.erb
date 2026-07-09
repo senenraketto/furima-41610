@@ -27,17 +27,18 @@
     </div>
 
     <%# ログインしているユーザーと出品しているユーザーが、同一人物の場合と同一人物ではない場合で、処理を分けましょう %>
-    <% if user_signed_in?%>
-      <% if true %><%## 購入機能実装前のため代用としてこうする%>
-        <% if current_user.id == @item.user_id %>
-          <%= link_to "商品の編集", edit_item_path(@item), method: :get, class: "item-red-btn" %>
-          <p class="or-text">or</p>
-          <%= link_to "削除", item_path(@item), data: {turbo_method: :delete}, class:"item-destroy" %>
-        <% else %>
-          <%= link_to "購入画面に進む", item_orders_path(@item), data: { turbo: false }, class:"item-red-btn"%>
-        <% end %>
-      <% end %>
-    <% end %>
+<% if user_signed_in? %>
+  <% if current_user.id == @item.user_id %>
+    <div class="item-btn">
+      <%= link_to "編集する", edit_item_path(@item), method: :get , class: "edit-btn" %>
+      <%= link_to "削除する", item_path(@item), data: {turbo_method: :delete}, class: "delete-btn" %>
+    </div>
+  <% elsif @item.order.blank? %>
+    <div class="item-btn">
+      <%= link_to "購入画面に進む", new_item_order_path(@item), data: { turbo: false }, class: "buy-btn" %>
+    </div>
+  <% end %>
+<% end %>
 
     <%# //ログインしているユーザーと出品しているユーザーが、同一人物の場合と同一人物ではない場合で、処理を分けましょう %>
 
