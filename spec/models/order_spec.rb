@@ -45,7 +45,7 @@ RSpec.describe OrderAddress, type: :model do
         expect(@order_address.errors.full_messages).to include('City を入力してください')
       end
       it 'addressesが空だと保存できない' do
-        @order_address.address = ''  
+        @order_address.address = '' 
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include('Address を入力してください')
       end
