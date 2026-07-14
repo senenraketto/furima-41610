@@ -5,9 +5,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   # アソシエーションREADME.mdに書いている 実装ごとに書く
+  has_many :items
+  has_many :orders
   # ユーザー情報
   validates :nickname, presence: true
   validates :birth_date, presence: true
+
 
   #  名前(全角)のバリデーション
   # （全角のひらがな、カタカナ、漢字のみを許可する正規表現）
@@ -23,4 +26,5 @@ class User < ApplicationRecord
   # パスワード
   VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i
   validates :password, format: { with: VALID_PASSWORD_REGEX, message: 'は半角英数字混合で入力してください' }, if: :password_required?
+
 end
