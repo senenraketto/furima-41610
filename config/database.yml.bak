@@ -25,7 +25,6 @@ development:
   password:
   host: localhost
   database: furima_41610_development
-  socket: /var/run/mysqld/mysqld.sock
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -37,7 +36,6 @@ test:
   password:
   host: localhost
   database: furima_41610_test
-  socket: /var/run/mysqld/mysqld.sock
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
